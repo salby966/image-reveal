@@ -20,7 +20,15 @@ body {
     display: flex;
 }
 
-section.scroll-trigger {
+section .scroll-trigger {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding: 5rem;
+	background-color: black;
+}
+
+.scroll-trigger {
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -114,6 +122,22 @@ img {
 }
 
 .slick-dots .slick-slide .slick-nav {
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.5;
+	letter-spacing: var(--small-letter-space);
+	color: #fff;
+	cursor: pointer;
+	text-transform: none;
+	text-decoration: none;
+	transition: all .75s ease-in-out;
+	-webkit-transition: all .75s ease-in-out;
+	-moz-transition: all .75s ease-in-out;
+	-ms-transition: all .75s ease-in-out;
+	-o-transition: all .75s ease-in-out;
+}
+
+.slick-nav {
 	font-size: 2rem;
 	font-weight: 300;
 	line-height: 1.5;

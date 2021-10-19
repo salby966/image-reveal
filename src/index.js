@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Scroll from './components/Scroll';
+import Half2 from './components/Half2';
 import Screen from './components/Screen';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Screen />
+    <Half2 />
   </React.StrictMode>,
   document.getElementById('root')
 );

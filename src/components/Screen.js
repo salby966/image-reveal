@@ -1,142 +1,147 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import "./Screen.css";
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-
-gsap.utils.toArray(".slick-nav").forEach((a, i) => {
-    a.clickElem = document.querySelector(a.hash);
-    a.offset = a.clickElem.offsetTop;
-    a.height = a.clickElem.offsetHeight;
-    a.addEventListener("click", e => {
-      e.preventDefault();
-      gsap.to(window, {scrollTo: a.offset + a.height * (i + 1)})
-    });
-  });
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scroll-trigger",
-      duration: 1.5,
-      pin: true,
-      scrub: true,
-      start: "top top",
-      end: "+=3000",
-      toggleActions: "restart pause resume pause"
+class Screen extends React.Component{
+    componentDidMount(){
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray(".slick-nav").forEach((a, i) => {
+            a.clickElem = document.querySelector(a.hash);
+            a.offset = a.clickElem.offsetTop;
+            a.height = a.clickElem.offsetHeight;
+            a.addEventListener("click", e => {
+              e.preventDefault();
+              gsap.to(window, {scrollTo: a.offset + a.height * (i + 1)})
+            });
+          });
+      
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".scroll-trigger",
+              duration: 1.5,
+              pin: true,
+              scrub: true,
+              start: "top top",
+              end: "+=3000",
+              toggleActions: "restart pause resume pause"
+            }
+          });
+      
+          // Slides Scroll Animation
+          tl.from(
+              "[data-slide='1'] ", {
+                opacity: 0.5,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+      
+            .to(
+              "[data-slide='1'] ", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
+      
+            .from(
+              "[data-slide='2'] ", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+            .to(
+              "[data-slide='2']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
+      
+            .from(
+              "[data-slide='3']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+            .to(
+              "[data-slide='3']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
+      
+            .from(
+              "[data-slide='4']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+            .to(
+              "[data-slide='4'] ", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
+      
+            .from(
+              "[data-slide='5']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+            .to(
+              "[data-slide='5']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
+      
+            .from(
+              "[data-slide='6']", {
+                opacity: 0,
+                duration: 1,
+                stagger: 2
+              },
+              "+=1"
+            )
+            .to(
+              "[data-slide='6']", {
+                opacity: 0.5,
+                duration: 1,
+                stagger: 2,
+                ease: "power4"
+              },
+              "+=10"
+            )
     }
-  });
 
-  // Slides Scroll Animation
-  tl.from(
-      "[data-slide='1'] ", {
-        opacity: 0.5,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
 
-    .to(
-      "[data-slide='1'] ", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-    .from(
-      "[data-slide='2'] ", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
-    .to(
-      "[data-slide='2']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-    .from(
-      "[data-slide='3']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
-    .to(
-      "[data-slide='3']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-    .from(
-      "[data-slide='4']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
-    .to(
-      "[data-slide='4'] ", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-    .from(
-      "[data-slide='5']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
-    .to(
-      "[data-slide='5']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-    .from(
-      "[data-slide='6']", {
-        opacity: 0,
-        duration: 1,
-        stagger: 2
-      },
-      "+=1"
-    )
-    .to(
-      "[data-slide='6']", {
-        opacity: 0.5,
-        duration: 1,
-        stagger: 2,
-        ease: "power4"
-      },
-      "+=10"
-    )
-
-const Screen = () => {
-    return (
+render(){
+    return(
         <>
         <div className="vh"></div>
         <section className="scroll-trigger">
@@ -209,6 +214,7 @@ const Screen = () => {
     <div className="vh"></div>
     </>
     )
+}
 }
 
 export default Screen;
