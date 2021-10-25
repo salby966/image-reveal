@@ -3,8 +3,8 @@ import "./App.scss";
 import Newyork from './images/new-york.webp';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import { TimelineLite, Power2 } from 'gsap';
-import Half from './components/Half';
 import Move from './components/Move';
+import BlogSection from './components/BlogSection';
 
 const App = () => {
   let container = useRef(null);
@@ -28,8 +28,6 @@ const App = () => {
           </div>
         </>
       </div>
-      <Half />
-      <Move />
     </section>
   );
 };

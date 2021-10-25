@@ -2,42 +2,41 @@ import "./Move.css";
 import People from "../images/people.webp";
 import React from 'react';
 import gsap from 'gsap';
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { nodeName } from "jquery";
 
-const { useRef, useEffect} = React;
-
-function Move(){
-    const imageRef = useRef(null);
-
-    useEffect(() => {
-        gsap.to("#image", {
-            x: 500,
-            duration: 10,
-            scrollTrigger: {
-                trigger: "#image",
-                markers: true,
-                scrub: true,
-                start: "top",
-                end: "bottom 50px",
-            }
+class Move extends React.Component{
+    componentDidMount(){
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.create({
+            trigger: ".move",
+            start: "top top",
+            end:"bottom 500px",
+            markers: true,
+            scrub: 1,
         });
-    },
-    []);
-
-    return (
-        <div className="Move">
-            <div>
-                <img width="500px" height="500px" src={People} />
+        // gsap.to(".move", {
+        //     scrollTrigger: {
+        //         trigger: ".move",
+        //         start: "top top",
+        //         end : "bootom 500px",
+        //         markers: 1,
+        //         scrub: true,
+        //         // toggleActions: "restart"
+        //     },
+        //     x: 200,
+        //     ease: "none",
+        //     // duration: 3
+        // });
+    }
+    render(){
+        return (
+            <div className="move">
+                    <img width="200px" height="200px" src={People} />
             </div>
-            <div>
-                <img width="500px" height="500px" src={People} />
-            </div>
-            <div ref={imageRef} id="image">
-                <img width="500px" height="500px" src={People} />
-            </div>
-        </div>
-    );
+        );
+    }
 }
-
 export default Move;
 
 // ReactDom.render( <Move />, document.getElementById("root"));

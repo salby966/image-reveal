@@ -2,15 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Scroll from './components/Scroll';
-import Half2 from './components/Half2';
-import Screen from './components/Screen';
-import Content from './components/Content';
+import Move from './components/Move';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Content />
+    <Move />
   </React.StrictMode>,
   document.getElementById('root')
 );
