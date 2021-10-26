@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Move from './components/Move';
+import Horizontal from './components/Horizontal';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Move />
+    <Horizontal />
   </React.StrictMode>,
   document.getElementById('root')
 );

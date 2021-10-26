@@ -1,0 +1,31 @@
+
+body{
+ overflow-x: hidden;
+}
+#container {
+    background-color:grey;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    width:100vw;
+    height:100vh;
+  }
+  
+  .module{
+    height:100%;
+    display:flex;
+  }
+  
+  .green{
+    position: relative;
+    width:40%;
+    background-color:green;
+  }
+  
+  .yellow{
+    position: relative;
+    width:160%;
+    background-color:yellow;
+    z-index: 999;
+  }
+  

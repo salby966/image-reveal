@@ -1,6 +1,6 @@
 import BlogCard from "./BlogCard";
 import BlogCardSub from "./BlogCardSub";
-import '../index.css'
+import '../index.css';
 
 function BlogSection() {
     return (

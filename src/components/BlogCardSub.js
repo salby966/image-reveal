@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import '../index.css';
 
 export default function BlogCardSub({ image, imageClassName, date, title, caption }) {
     const addImageClassName = imageClassName ? ` ${imageClassName}` : "";
